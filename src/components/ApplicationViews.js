@@ -2,7 +2,7 @@ import React from "react"
 import { Route } from "react-router-dom"
 import {Home} from "./Home"
 import { LocationCard } from "./location/LocationCard"
-import { AnimalCard} from "./animal/AnimalCard"
+import { AnimalList } from "./animal/AnimalList"
 import {CustomerCard } from "./customer/CusomterCard"
 import { EmployeeCard} from "./employee/EmployeeCard"
 
@@ -22,7 +22,7 @@ export const ApplicationViews =  () => {
 
       {/* Render the animal list when http://localhost:3000/animals */}
         <Route path = "/animals">
-        <AnimalCard />
+        <AnimalList />
         </Route>
 
 
