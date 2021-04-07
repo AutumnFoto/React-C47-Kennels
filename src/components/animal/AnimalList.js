@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {AnimalCard} from "./AnimalCard";
-import {getAllAnimals} from "../../modules/AnimalManager";
+import {deleteAnimal, getAllAnimals} from "../../modules/AnimalManager";
 
 export const AnimalList = () => {
     // initial state is an empty array
@@ -21,6 +21,10 @@ setAnimals(animalsFromAPI)
 
 // The function argument to useEffect tells React to call the getAnimals() function (that will fetch data from our API). The empty array argument tells React to call the function on the first render of the component.
 
+const handleDeleteAnimal = id => {
+  deleteAnimal(id)
+  .then(() => getAllAnimals().then(setAnimals));
+};
 // got animals from API on components first render
 useEffect(() => {
     getAnimals();
@@ -40,7 +44,11 @@ useEffect(() => {
 return(
     <div className="container-cards">
       {animals.map(animal =>
-        <AnimalCard key={animal.id} animal={animal} />
+        <AnimalCard 
+        key={animal.id} 
+        animal={animal} 
+        handleDeleteAnimal={handleDeleteAnimal}
+        />
       )}
     </div>
   );
