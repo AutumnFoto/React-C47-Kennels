@@ -1,9 +1,15 @@
 import React from 'react'
 import "./Employee.css"
 
-export const EmployeeCard =  () => (
-    <section  className= "employee">
-        <h3 className ="employee_name">Emma Beaton</h3>
-        <div className = "employee_address"> Address: Nashville Kennels North</div>
-    </section>
-)
+// employee is an object that has been passed through props, props is implied here. thats why we can do dot notation 
+export const EmployeeCard =  ({employee}) => {
+    return(
+        <div className= "card">
+            <div className="card-content">
+                <h3>Name: <span className="card-employeename">
+                    {employee.name}</span></h3>
+                    <p> Address: {employee.address}</p>
+            </div>
+        </div>
+    );
+}
