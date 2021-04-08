@@ -8,7 +8,7 @@ export const getAnimalById = (animalId) => {
 }
 
 export const getAllAnimals = () => {
-    return fetch(`${remoteURL}/animals`)
+    return fetch(`${remoteURL}/animals/`)
     .then(res => res.json())
 }
 
